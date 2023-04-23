@@ -6,7 +6,8 @@ import {
     InputNumber,
     Space
   } from 'antd';
-import axios from 'axios'
+import axios from 'axios';
+import { Container, Paper } from '@mui/material';
 
 const { TextArea } = Input;
 
@@ -42,14 +43,14 @@ function Createprofile(props) {
     }
 
     return (
-        <>
-        <div style={{display: "flex", alignItems: 'center', justifyContent: "center", marginTop: 30, marginBottom: 30, fontSize: '30px'}}> <b>Create Profile</b> </div>
-        <Space style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 150, width: '100%' }}>
+      <Container sx={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <Paper elevation={3} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '40rem', padding: '2rem'}}>
+          <h1>Create Profile</h1>
+          <p style={{margin: '0rem', fontSize: '1.25rem'}}>Please fill out the information below</p>
+          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '1rem'}}>
             <Form
-            labelCol={{ span: 30 }}
-            wrapperCol={{ span: 20 }}
-            layout="horizontal"
-            style={{ maxWidth: 900, }}
+            layout="vertical"
+            style={{ width: '28rem' }}
             >   
                 <p>Your Code: {code}</p>
 
@@ -78,12 +79,13 @@ function Createprofile(props) {
                 </Form.Item>
 
                 <Form.Item>
-                    <Button type="primary" onClick={handleSubmit}>Submit</Button> 
+                    <Button type="primary" style={{width: '100%', marginBottom: '21'}} onClick={handleSubmit}>Submit</Button> 
                 </Form.Item>      
             
             </Form>
-        </Space>
-        </>
+          </div>
+        </Paper>
+      </Container>
     )
 }
 
