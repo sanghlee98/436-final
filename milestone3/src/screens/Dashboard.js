@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { Button, Card, Col, Row } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import axios from 'axios'
+import axios from 'axios';
+import { Container, Paper } from '@mui/material';
 
 function Dashboard(props) {
     var queryString = window.location.search
@@ -31,22 +32,25 @@ function Dashboard(props) {
 
     return (
         <>
-            <div style={{display: "flex", alignItems: 'center', justifyContent: "center", marginTop: 30, marginBottom: 30, fontSize: '30px'}}> <b>Dashboard</b> </div>
+            <div style={{display: "flex", alignItems: 'center', justifyContent: "center", marginTop: 30 , marginBottom: 30, fontSize: '30px'}}> <b>Dashboard</b> </div>
             <Row gutter={[16, 16]}>
                 {item.map((item, index) => (
                     <Col key={index} span={8}>
-                        <Card title={"Classmate " + item.id} >
-                            <p>Major: {item.major}</p>
-                            <p>Class of {item.gradYear}</p>
-                            <p>Hobby: {item.hobbies}</p>
-                            <p>Major Specific Interest: {item.majInterest}</p>
-                            <p>Career Path Interest: {item.carInterest}</p>
-                            <p>Other Classes: {item.otherClasses}</p>
-                        </Card>
+                        <Container sx={{minHeight: '55vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                            <Paper elevation={3} sx={{display: 'flex', flexDirection: 'column', width: '45rem', alignItems: 'center', padding: '2rem'}}>
+                                <b style={{marginBottom: '.7rem', marginTop: '1rem', fontSize: '1.50rem'}}>{"Classmate " + item.id}</b>
+                                    <div style={{display: 'flex', alignItems: 'center'}}><b>Major</b> <p>: {item.major}</p></div>
+                                    <div style={{display: 'flex', alignItems: 'center'}}><b>Class of</b> <p>: {item.gradYear}</p></div>
+                                    <div style={{display: 'flex', alignItems: 'center'}}><b>Hobby</b> <p>: {item.hobbies}</p></div>
+                                    <div style={{display: 'flex', alignItems: 'center'}}><b>Major Specific Interest</b> <p>: {item.majInterest}</p></div>
+                                    <div style={{display: 'flex', alignItems: 'center'}}><b>Career Path Interest</b> <p>: {item.carInterest}  </p></div>
+                                    <div style={{display: 'flex', alignItems: 'center'}}><b>Other Classes</b> <p>: {item.otherClasses}  </p></div>
+                            </Paper>
+                        </Container>
                     </Col>
                 ))}
             </Row>
-            <Button style={{display: "flex", alignItems: 'center', justifyContent: "center", width: 250, height: 50, marginLeft: '44%', marginTop: 50, marginBottom: 50 }} type="primary" onClick={handleSubmit}>Seating Chart</Button> 
+            <Button type="primary" style={{display: "flex", alignItems: 'center', justifyContent: "center",  marginLeft: '45.5%', marginTop: 50, marginBottom: 50, width: 150, height: 50, fontSize: '20px'}} onClick={handleSubmit}>Seating Chart</Button>
         </> 
     )
 }

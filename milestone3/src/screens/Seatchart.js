@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import { Button, Card, Col, Row } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import axios from 'axios'
+import { Container, Paper } from '@mui/material';
+
 
 function Seatchart(props) {
     var queryString = window.location.search
@@ -35,13 +37,15 @@ function Seatchart(props) {
             <Row gutter={[16, 16]}>
                 {item.map((item, index) => (
                     <Col key={index} span={4}>
-                        <Card >
-                            <p>{"Classmate " + item.id}</p>
-                        </Card>
+                        <Container sx={{height: '20vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                            <Paper elevation={3} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '23rem', padding: '2rem'}}>
+                                <p>{"Classmate " + item.id}</p>
+                            </Paper>
+                        </Container>
                     </Col>
                 ))}
             </Row>
-            <Button style={{display: "flex", alignItems: 'center', justifyContent: "center", width: 250, height: 50, marginLeft: '44%', marginTop: 50, marginBottom: 50 }} type="primary" onClick={handleSubmit}>Return Main</Button> 
+            <Button type="primary" style={{display: "flex", alignItems: 'center', justifyContent: "center",  marginLeft: '45.5%', marginTop: 50, marginBottom: 50, width: 150, height: 50, fontSize: '20px'}} onClick={handleSubmit}>Return Main</Button>
         </> 
     )
 }

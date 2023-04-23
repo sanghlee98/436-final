@@ -43,6 +43,7 @@ function Createprofile(props) {
     }
 
     return (
+    <div style={{padding: '100px'}}>
       <Container sx={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <Paper elevation={3} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '40rem', padding: '2rem'}}>
           <h1>Create Profile</h1>
@@ -86,6 +87,7 @@ function Createprofile(props) {
           </div>
         </Paper>
       </Container>
+    </div>
     )
 }
 
