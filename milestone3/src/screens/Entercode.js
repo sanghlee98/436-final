@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Input, Select, Space } from 'antd';
-import axios from 'axios'
+import axios from 'axios';
+import { Container, Paper } from '@mui/material';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 function Entercode(props) {
     const [code, setCode] = useState('');
@@ -21,14 +23,16 @@ function Entercode(props) {
     }
 
     return (
-        <>
-        <div style={{display: "flex", alignItems: 'center', justifyContent: "center", marginTop: 30, marginBottom: 30, fontSize: '30px'}}> <b>Enter Code</b> </div>
-        <Space direction="vertical" style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 150 }}>
-            <>Please enter code</>
-            <Input defaultValue="enter code" type="text" value={code} onChange={(e) => setCode(e.target.value)} />
-            <Button type="primary" onClick={handleSubmit}>Submit</Button>  
-        </Space>
-        </>
+      <Container sx={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <Paper elevation={3} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '40rem', padding: '2rem'}}>
+          <h1>Join Class</h1>
+          <p style={{fontSize: '1.5rem'}}>Use class code to join class</p>
+          <div style={{display: 'flex'}}>
+            <Input defaultValue="enter code" type="text" value={code} onChange={(e) => setCode(e.target.value)} style={{width: '17.375rem', marginRight: '0.5rem'}} />
+            <Button type="primary" onClick={handleSubmit}><ArrowForwardIcon /></Button>  
+          </div>
+        </Paper>
+      </Container>
     )
 }
 
